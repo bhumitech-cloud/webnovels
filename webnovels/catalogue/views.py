@@ -72,3 +72,35 @@ def search(request):
         novel.link = results[5]
         novelss.append(novel)
     return render(request,'home.html',{'novels':novelss})
+
+
+def details(request):
+    mydb = mysql.connector.connect(
+    host="localhost",
+    user="bhumit",
+    password="admin123",
+    database="novels"
+    )
+    novelid = request.GET['id']
+    mycursor = mydb.cursor()
+    mycursor.execute("select novelID,title,image,author,genre,url,description,chapters from novelsdetails where novelID = "+novelid+";")
+    results = mycursor.fetchall()[0]
+    novel = novels()
+    novel.id = results[0]
+    novel.title = results[1]
+    novel.img = results[2]
+    novel.author = results[3]
+    novel.genre = results[4]
+    novel.link = results[5]
+    description = results[6].replace('\n','<br>')
+    novel.chapter = results[7]
+    mycursor.execute(f"select chapterno,chapter_title,chapter_link from chapters where novelID = {novel.id};")
+    chapterss = mycursor.fetchall()
+    chapters = []
+    for chap in chapterss:
+        c = chapter()
+        c.no = chap[0]
+        c.title = chap[1]
+        c.link = chap[2]
+        chapters.append(c)
+    return render(request,'details.html',{'novel':novel,'chapters':chapters,'description':description})
