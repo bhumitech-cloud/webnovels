@@ -1,0 +1,86 @@
+.backg{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.searchbar {
+    background-color: aliceblue;
+    height: 100px;
+    display: flex;  
+    margin-top: 10px;
+    margin-bottom: 10px;      
+}
+
+.sideheader{
+    margin-top: 10px;
+    background-color: aliceblue;
+    font-size: large;
+    text-align: center;
+}
+
+.pl0{
+    padding-left: 0px;
+}
+.pr0{
+    padding-right: 0px;
+}
+.mainheader{
+    margin-top: 10px;
+    height: 50px;
+    background-color: aliceblue;
+    display: flex;
+}
+.genre {
+    margin-top: 10px;
+    background-color: aliceblue;
+    height: 800px;
+
+}
+
+.maincont{
+    max-width: 1500px;
+}
+.details {
+    position: absolute;
+    right: 0;
+    border-style: groove;
+    margin-right: 5px;
+}
+.novellist{
+    margin-top: 10px;
+    list-style-type: none;
+    padding-left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.novelcard{
+    width: 380px;
+    height: 187px;
+    box-sizing: content-box;
+    margin: 10px;
+    background-color: aliceblue;
+}
+
+
+.cover-img {
+    padding: 5px;
+    width: auto;
+    height: 185px;
+}
+
+.genrelist{
+    padding-left: 5%;
+    list-style-type: none;
+    overflow-y: scroll;
+    height: 700px;
+}
+
+.tags {
+    width: 80%;
+    margin: 5%;
+    color: black;
+    border-color: rgba(173, 173, 173, 0.753);
+}

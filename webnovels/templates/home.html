@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container maincont searchbar shadow-lg rounded justify-content-center align-items-center">
+    <form action="search">
+        <input type="search" placeholder="Title" aria-label="Title" name="term">
+        <input type="search" placeholder="Author" aria-label="Author" name="author">
+        <input type="search" placeholder="Genre" aria-label="Genre" name="genre">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+</div>
+<div class="container maincont bg">
+    <div class="row">
+        <div class="col-2 genre rounded shadow-lg">
+            <div class="sideheader">
+                Search by Genre
+                <hr>
+            </div>
+            <ul class="genrelist">
+                <form action="search">
+                    <input type="hidden" name="term" value="">
+                    <input type="hidden" name="author" value="">
+                    <li><input type="submit" class="btn btn-outline-secondary tags" value="Sci-fi" name="genre"></li>
+                    <li><input type="submit" class="btn btn-outline-secondary tags" value="Romance" name="genre"></li>
+                    <li><input type="submit" class="btn btn-outline-secondary tags" value="Fantasy" name="genre"></li>
+                    <li><input type="submit" class="btn btn-outline-secondary tags" value="Video Games" name="genre">
+                    </li>
+                    <li><input type="submit" class="btn btn-outline-secondary tags" value="Action" name="genre"></li>
+                    <li><input type="submit" class="btn btn-outline-secondary tags" value="Teen" name="genre"></li>
+                    <li><input type="submit" class="btn btn-outline-secondary tags" value="Horror&Thriller"
+                            name="genre"></li>
+                    <li><input type="submit" class="btn btn-outline-secondary tags" value="Competitive Sports"
+                            name="genre"></li>
+                    <li><input type="submit" class="btn btn-outline-secondary tags" value="Martial Arts" name="genre">
+                    </li>
+                    <li><input type="submit" class="btn btn-outline-secondary tags" value="War&Military" name="genre">
+                    </li>
+                    <li><input type="submit" class="btn btn-outline-secondary tags" value="History" name="genre"></li>
+                    <li><input type="submit" class="btn btn-outline-secondary tags" value="Magic" name="genre"></li>
+                    <li><input type="submit" class="btn btn-outline-secondary tags" value="Reincarnation" name="genre">
+                    </li>
+                    <li><input type="submit" class="btn btn-outline-secondary tags" value="Secret Identity"
+                            name="genre"></li>
+                    <li><input type="submit" class="btn btn-outline-secondary tags" value="Comedy" name="genre"></li>
+                    <li><input type="submit" class="btn btn-outline-secondary tags" value="Strategy" name="genre">
+                    </li>
+                    <li><input type="submit" class="btn btn-outline-secondary tags" value="Villainous Lead"
+                            name="genre"></li>
+                    <li><input type="submit" class="btn btn-outline-secondary tags" value="Adventure" name="genre">
+                    </li>
+                    <li><input type="submit" class="btn btn-outline-secondary tags" value="Drama" name="genre"></li>
+                    <li><input type="submit" class="btn btn-outline-secondary tags" value="GameLit" name="genre"></li>
+                    <li><input type="submit" class="btn btn-outline-secondary tags" value="Slice of Life" name="genre">
+                    </li>
+                    <li><input type="submit" class="btn btn-outline-secondary tags" value="Supernatural" name="genre">
+                    </li>
+                    <li><input type="submit" class="btn btn-outline-secondary tags" value="Horror" name="genre"></li>
+                    <li><input type="submit" class="btn btn-outline-secondary tags" value="Progression" name="genre">
+                    </li>
+                    <li><input type="submit" class="btn btn-outline-secondary tags" value="Cyberpunk" name="genre">
+                    </li>
+                    <li><input type="submit" class="btn btn-outline-secondary tags" value="Female Lead" name="genre">
+                    </li>
+                    <li><input type="submit" class="btn btn-outline-secondary tags" value="Male Lead" name="genre">
+                    </li>
+                    <li><input type="submit" class="btn btn-outline-secondary tags" value="Dungeon" name="genre"></li>
+                </form>
+            </ul>
+        </div>
+        <div class="col-10 list">
+            <div class="rounded shadow-lg mainheader justify-content-center align-items-center">
+                <h3>Novels</h3>
+            </div>
+            <ul class="novellist">
+                {% for novel in novels %}
+                <li class="rounded shadow-lg novelcard">
+                    <div class="card">
+                        <div class="row">
+                            <div class="col-5 pr0"><img src='{{novel.img}}' class="card-img-left cover-img"
+                                    alt="{{novel.title}}"></div>
+                            <div class="col-7 pl0">
+                                <div class="card-body" style="position: relative;">
+                                    <h6 class="card-title">{{novel.title}}</h6>
+                                    <p class="card-subtitle author">Author:{{novel.author}}<br>{{novel.genre}}</p>
+                                    <a href="/details?{{novel.id}}" class="btn btn-outline-dark details">Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
