@@ -149,8 +149,9 @@
   transition: 0.5s;
 }
 
-.dark-mode-bton {
-  background-color: blue !important;
-  color: white;
+.dark-mode-btn {
+  background-color: #232323;
+  color: white; !important
   transition: 0.5s;
+  border-color: #0080ff;
 }

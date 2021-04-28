@@ -3,16 +3,18 @@ var dayEmo = '🌞';
 var nightEmo = '🌙';
 var day = "day";
 var night = "night";
+
+// this list contains pairs of jQuery selector and the css theme
+// easy to add and highly configurable
 var elementsList = [
 	["body", "dark-mode"],
-	// [".rounded", "dark-mode-card"],
-	// [".sideheader", "dark-mode-card"],
-	// [".card", "dark-mode-card"],
-	[".btn", "dark-mode-btn"],
-	// [".formContainer", "dark-mode-card"],
-	// ["input", "dark-mode-text-box"],
-	// ["textarea", "dark-mode-text-box"],
-	["input[type='search']", "dark-mode-text-box"]
+	[".rounded", "dark-mode-card"],
+	[".sideheader", "dark-mode-card"],
+	[".card", "dark-mode-card"],
+	[".tags", "dark-mode-btn"],
+	[".footer", "dark-mode-card"],
+	[".detail", "dark-mode-btn"],
+	["[type='search']", "dark-mode-text-box"]
 ];
 
 $(document).ready(function(){
