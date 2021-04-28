@@ -148,3 +148,9 @@
   color: white;
   transition: 0.5s;
 }
+
+.dark-mode-bton {
+  background-color: blue !important;
+  color: white;
+  transition: 0.5s;
+}

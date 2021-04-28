@@ -5,10 +5,10 @@ var day = "day";
 var night = "night";
 var elementsList = [
 	["body", "dark-mode"],
-	[".rounded", "dark-mode-card"],
-	[".sideheader", "dark-mode-card"],
-	[".card", "dark-mode-card"],
-	// [".timeline-card", "dark-mode-card"],
+	// [".rounded", "dark-mode-card"],
+	// [".sideheader", "dark-mode-card"],
+	// [".card", "dark-mode-card"],
+	[".btn", "dark-mode-btn"],
 	// [".formContainer", "dark-mode-card"],
 	// ["input", "dark-mode-text-box"],
 	// ["textarea", "dark-mode-text-box"],
