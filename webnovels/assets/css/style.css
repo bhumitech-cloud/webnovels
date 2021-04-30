@@ -5,7 +5,111 @@
 }
 
 .searchbar {
+    background-color: white;
     height: 100px;
-    background: beige;
-    display: flex;        
+    display: flex;  
+    margin-top: 10px;
+    margin-bottom: 10px;      
 }
+
+.sideheader{
+    margin-top: 10px;
+    background-color: white;
+    font-size: large;
+    text-align: center;
+}
+
+.pl0{
+    padding-left: 0px;
+}
+.pr0{
+    padding-right: 0px;
+}
+.mainheader{
+    margin-top: 10px;
+    height: 50px;
+    background-color: white;
+    display: flex;
+}
+.genre {
+    margin-top: 10px;
+    background-color: white;
+    height: 800px;
+
+}
+
+.maincont{
+    max-width: 1500px;
+}
+.detail {
+    position: absolute;
+    right: 0;
+    border-style: groove;
+    margin-right: 5px;
+}
+.novellist{
+    margin-top: 10px;
+    list-style-type: none;
+    padding-left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.novelcard{
+    width: 380px;
+    height: 187px;
+    box-sizing: content-box;
+    margin: 10px;
+    background-color: white;
+}
+
+
+.cover-img {
+    padding: 5px;
+    width: auto;
+    height: 185px;
+}
+
+.genrelist{
+    padding-left: 5%;
+    list-style-type: none;
+    overflow-y: scroll;
+    height: 700px;
+}
+
+.tags {
+    width: 80%;
+    margin: 5%;
+    color: black;
+    border-color: rgba(173, 173, 173, 0.753);
+}
+
+
+.noveldetails{
+    height: 450px;
+    background-color: white;
+    margin: 20px;
+}
+
+.fullimage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info{
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.description{
+    background-color: white;
+    width: auto;
+    margin: 20px;
+    padding: 25px;
+}
+
+
