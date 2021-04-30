@@ -1,20 +1,28 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import novels,chapter
-import mysql.connector
+#import mysql.connector
 
 def index(request):
-    mydb = mysql.connector.connect(
-    host="localhost",
-    user="bhumit",
-    password="admin123",
-    database="novels"
-    )
-    mycursor = mydb.cursor()
-    mycursor.execute("select novelID,title,image,author,genre,url from novelsdetails where novelID < 50;")
-    myresult = mycursor.fetchall()
+    # mydb = mysql.connector.connect(
+    # host="localhost",
+    # user="bhumit",
+    # password="admin123",
+    # database="novels"
+    # )
+    # mycursor = mydb.cursor()
+    # mycursor.execute("select novelID,title,image,author,genre,url from novelsdetails where novelID < 50;")
+    # myresult = mycursor.fetchall()
+    results = [
+        1,
+        "Sanket",
+        "https://img.webnovel.com/bookcover/8022472105002805/150/150.jpg?coverUpdateTime=1547697670957",
+        "Bhumit",
+        "Science and tech",
+        "https://www.webnovel.com/book/super-gene_8022472105002805"
+    ]
     novelss = []
-    for results in myresult:
+    for _ in range(10):
         novel = novels()
         novel.id = results[0]
         novel.title = results[1]

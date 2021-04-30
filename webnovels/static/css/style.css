@@ -1,4 +1,5 @@
 .backg{
+	background-color: #c1c1c1;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -110,4 +111,48 @@
     width: auto;
     margin: 20px;
     padding: 25px;
+}
+
+#darkModeBtn {
+  position: fixed;
+  bottom: 80px;
+  right: 30px;
+  z-index: 99;
+  height: 50px;
+  width: 50px;
+  outline: none;
+  background-color: #333333c2;
+  color: white;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+#darkModeBtn:hover {
+  background-color: #111111c2;
+  color: white
+}
+
+.dark-mode {
+  background-color: #181a1b !important;
+  color: white;
+  transition: 0.5s;
+}
+
+.dark-mode-card {
+  background-color: #1b1d1e !important;
+  color: white;
+  transition: 0.5s;
+}
+
+.dark-mode-text-box {
+  background-color: #232323 !important;
+  color: white;
+  transition: 0.5s;
+}
+
+.dark-mode-btn {
+  background-color: #232323;
+  color: white; !important
+  transition: 0.5s;
+  border-color: #0080ff;
 }
