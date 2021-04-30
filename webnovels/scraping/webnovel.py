@@ -15,14 +15,11 @@ def scrap_novelsdetails():
         )
     mycursor = mydb.cursor()
     session = requests.Session()
-    mycursor.execute("select novelID,title,url from test where url not in (select url from novelsdetails) and url like '%webnovel.com%';")
+    mycursor.execute("select novelID,title,url from test where novelID not in (select novelID from novelsdetails) and url like '%webnovel.com%';")
     myresult = mycursor.fetchall()
     for novels in myresult:
         id,title,url = novels
-        start = time.time()
         page = session.get(url).text
-        end = time.time()
-        print("Session: ", end- start)
         soup = BeautifulSoup(page,'lxml')
         novel_object = soup.find('div',class_ = 'det-info g_row c_000 fs16 pr')
         image = "https:" + novel_object.find('img',src = True)["src"]
@@ -79,8 +76,6 @@ def get_chapter(novelID,url):
         title = ' '.join(t[1:-2])
         link = chapters["href"].lstrip("//")
         data.append((novelID, no, title, link))
-    for dat in data:
-        print(dat)
     database.create_chapters(data)
 
 def scrap_chapters():

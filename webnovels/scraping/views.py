@@ -36,10 +36,7 @@ def insertNovel(request):
         title = title.replace('-',' ')
         database.create_novels(title,url)
         webnovel.scrap_novelsdetails()
-        try:
-            webnovel.scrap_chapters()
-        except:
-            print('somthing occured')
+        webnovel.scrap_chapters()
         return HttpResponse("Srapping succesfull")
     elif id == 2:
         rev = url[::-1]

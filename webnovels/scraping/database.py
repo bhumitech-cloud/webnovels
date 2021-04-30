@@ -18,10 +18,15 @@ def create_novelsdetails(novelID,title,url,chapters,author,genre,about,img):
 
 
 def create_chapters(data): #data is arguments in form of list of tuples
-    global mydb
+    mydb = mysql.connector.connect(
+    host="localhost",
+    user="bhumit",
+    password="admin123",
+    database="novels"
+    )
     mycursor = mydb.cursor()
     sql = "INSERT INTO chapters(novelID,chapterno,chapter_title,chapter_link) VALUES (%s,%s,%s,%s)"
-    mycursor.executemany(sql, data)
+    mycursor.executemany(sql,data)
     mydb.commit()
     print(mycursor.rowcount, "record inserted.")
 
