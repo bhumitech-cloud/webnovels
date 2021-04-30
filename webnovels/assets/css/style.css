@@ -1,0 +1,11 @@
+.backg{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.searchbar {
+    height: 100px;
+    background: beige;
+    display: flex;        
+}
