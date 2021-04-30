@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import sites
+from . import webnovel,royalroad,rrchapters,database
 import mysql.connector
 
 def login(request):
@@ -25,3 +26,28 @@ def scrap(request):
         return render(request,'scraper.html',{'websites':sitelist})
     else:
         return HttpResponse('wrong username and password')
+
+def insertNovel(request):
+    id = int(request.GET["id"])
+    url = request.GET["url"]
+    if id == 1:
+        title = url[30:]
+        title = title[:title.index('_')]
+        title = title.replace('-',' ')
+        database.create_novels(title,url)
+        webnovel.scrap_novelsdetails()
+        try:
+            webnovel.scrap_chapters()
+        except:
+            print('somthing occured')
+        return HttpResponse("Srapping succesfull")
+    elif id == 2:
+        rev = url[::-1]
+        index = 0 - rev.index('/')
+        title =  url[index:].replace('-',' ')
+        database.create_novels(title.text,url)
+        royalroad.update_details()
+        #rrchapters.scrap_chapters()
+        return HttpResponse("Srapping succesfull")
+    else:
+        return HttpResponse("Srapping unsuccessfull")
