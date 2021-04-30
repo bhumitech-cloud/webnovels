@@ -1,0 +1,12 @@
+.main{
+    height: 800px;
+    display: flex;
+    justify-content: start;
+}
+
+.site{
+    height: 100px;
+    width: 500px;
+    background-color: white;
+    margin: 20px;
+}
