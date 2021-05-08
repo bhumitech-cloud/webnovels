@@ -1,4 +1,4 @@
-version: "3.9"
+version: "3.3"
    
 services:
     db:
@@ -6,21 +6,19 @@ services:
         restart: always
         environment:
             MYSQL_DATABASE: 'novels'
-            # So you don't have to use root, but you can if you like
-            MYSQL_USER: 'bhumit'
-            # You can use whatever password you like
-            MYSQL_PASSWORD: 'admin123'
             # Password for root access
             MYSQL_ROOT_PASSWORD: 'password'
         ports:
             # <Port exposed> : < MySQL Port running inside container>
-            - '3306:3306'
+            - '3307:3306'
+        security_opt:
+            - seccomp:unconfined
         expose:
             # Opens port 3306 on the container
             - '3306'
             # Where our data will be persisted
     web:
-        image: bhumitech/webnovel:1.0
+        image: bhumitech/webnovel:2.0
         restart: always
         command: python manage.py runserver 0.0.0.0:8000
         ports:
