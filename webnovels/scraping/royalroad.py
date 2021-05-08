@@ -1,9 +1,15 @@
 from bs4 import BeautifulSoup
 import requests
 from . import database
+import mysql.connector
 
 def update_details():
-    global mydb
+    mydb = mysql.connector.connect(
+    host="localhost",
+    user="bhumit",
+    password="admin123",
+    database="novels"
+    )
     mycursor = mydb.cursor()
     mycursor.execute("select novelID,title,url from test where url not in (select url from novelsdetails) and url like '%royalroad.com%';")
     myresult = mycursor.fetchall()

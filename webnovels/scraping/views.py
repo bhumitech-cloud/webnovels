@@ -42,7 +42,7 @@ def insertNovel(request):
         rev = url[::-1]
         index = 0 - rev.index('/')
         title =  url[index:].replace('-',' ')
-        database.create_novels(title.text,url)
+        database.create_novels(title,url)
         royalroad.update_details()
         #rrchapters.scrap_chapters()
         return HttpResponse("Srapping succesfull")

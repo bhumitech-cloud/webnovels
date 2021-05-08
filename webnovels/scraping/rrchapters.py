@@ -3,16 +3,15 @@ import requests
 import time
 import mysql.connector
 
-mydb = mysql.connector.connect(
-  host="localhost",
-  user="bhumit",
-  password="admin123",
-  database="novels"
-)
 
 
 def create(data):
-    global mydb
+    mydb = mysql.connector.connect(
+    host="localhost",
+    user="bhumit",
+    password="admin123",
+    database="novels"
+    )
     mycursor = mydb.cursor()
     sql = "INSERT INTO chapters(novelID,chapterno,chapter_title,chapter_link) VALUES (%s,%s,%s,%s)"
     mycursor.executemany(sql, data)
@@ -20,7 +19,12 @@ def create(data):
     print(mycursor.rowcount, "record inserted.")
 
 def get_chapter(novelID,url):
-    global session
+    mydb = mysql.connector.connect(
+    host="localhost",
+    user="bhumit",
+    password="admin123",
+    database="novels"
+    )
     start = time.time()
     page_data = session.get(url).text
     end = time.time()
@@ -47,7 +51,12 @@ def get_chapter(novelID,url):
 
 
 def scrap_chapters():
-    global mydb
+    mydb = mysql.connector.connect(
+    host="localhost",
+    user="bhumit",
+    password="admin123",
+    database="novels"
+    )
     mycursor = mydb.cursor()
     session = requests.Session()
     mycursor.execute("select novelID,url from test where novelID not in (select novelID from chapters)and url like '%royalroad.com%';")
