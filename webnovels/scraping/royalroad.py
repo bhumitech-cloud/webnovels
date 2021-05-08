@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 from . import database
 import mysql.connector
+import time,random
 
 def update_details():
     mydb = mysql.connector.connect(

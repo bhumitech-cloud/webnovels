@@ -26,7 +26,7 @@ def get_chapter(novelID,url):
     database="novels"
     )
     start = time.time()
-    page_data = session.get(url).text
+    page_data = requests.get(url).text
     end = time.time()
     print("request time:",end-start)
     soup = BeautifulSoup(page_data, 'lxml')
